@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.juancaffarel.finderapp.R;
 
 public class DemoViewHolder extends RecyclerView.ViewHolder {
-    CardView cvDemoContainer;
-    TextView tvDemo;
+    public CardView cvDemoContainer;
+    public TextView tvDemo;
 
     public DemoViewHolder(@NonNull View v) {
         super(v);
