@@ -6,6 +6,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -17,7 +19,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class PartialMapActivity extends BaseActivity implements OnMapReadyCallback {
+public class PartialMapActivity extends BaseActivity implements OnMapReadyCallback, View.OnClickListener {
 
     private GoogleMap mMap;
 
@@ -30,6 +32,20 @@ public class PartialMapActivity extends BaseActivity implements OnMapReadyCallba
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        Button scrollUp = findViewById(R.id.scrollUp);
+        Button scrollDown = findViewById(R.id.scrollDown);
+        Button scrollLeft = findViewById(R.id.scrollLeft);
+        Button scrollRight= findViewById(R.id.scrollRight);
+        Button zoomIn= findViewById(R.id.zoomIn);
+        Button zoomOut= findViewById(R.id.zoomOut);
+
+        scrollUp.setOnClickListener(this);
+        scrollDown.setOnClickListener(this);
+        scrollLeft.setOnClickListener(this);
+        scrollRight.setOnClickListener(this);
+        zoomIn.setOnClickListener(this);
+        zoomOut.setOnClickListener(this);
+
     }
 
     @Override
@@ -38,4 +54,27 @@ public class PartialMapActivity extends BaseActivity implements OnMapReadyCallba
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.scrollUp:
+                mMap.animateCamera(CameraUpdateFactory.scrollBy(0,-100));
+                break;
+            case R.id.scrollDown:
+                mMap.animateCamera(CameraUpdateFactory.scrollBy(0,100));
+                break;
+            case R.id.scrollLeft:
+                mMap.animateCamera(CameraUpdateFactory.scrollBy(-100,0));
+                break;
+            case R.id.scrollRight:
+                mMap.animateCamera(CameraUpdateFactory.scrollBy(100,0));
+                break;
+            case R.id.zoomIn:
+                mMap.animateCamera(CameraUpdateFactory.zoomIn());
+                break;
+            case R.id.zoomOut:
+                mMap.animateCamera(CameraUpdateFactory.zoomOut());
+                break;
+        }
+    }
 }
