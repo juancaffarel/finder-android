@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">FinderApp</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="up_arrow">↑</string>
+    <string name="down_arrow">↓</string>
+    <string name="left_arrow">←</string>
+    <string name="right_arrow">→</string>
+    <string name="zoom_in">+</string>
+    <string name="zoom_out">-</string>
+
 </resources>

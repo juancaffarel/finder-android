@@ -25,6 +25,7 @@ public class HomeActivity extends BaseActivity{
         List<Demo> demoList = new ArrayList<>();
 
         demoList.add(new Demo("Basic map",MapsActivity.class));
+        demoList.add(new Demo("Partial map",PartialMapActivity.class));
 
         DemoAdapter adapter = new DemoAdapter(demoList,this);
 
